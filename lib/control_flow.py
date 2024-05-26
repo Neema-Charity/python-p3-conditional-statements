@@ -27,14 +27,16 @@ def fizzbuzz(num):
         return num
 
 def calculator(operation, num1, num2):
-    if operation == '+':
-        return num1 + num2
-    elif operation == '-':
-        return num1 - num2
-    elif operation == '*':
-        return num1 * num2
-    elif operation == '/':
-        return num1 / num2
-    else:
-        print("Invalid operation!")
+    dict_map = {
+        '+' : num1 + num2,
+        '-' : num1 - num2,
+        '*' : num1 * num2,
+        '/' : num1 / num2 if num2 != 0 else "Error: Division by zero"
+    }
+    result = dict_map.get(operation, "Invalid operation!")
+    
+    if result == "Invalid operation!" or result == "Division by zero":
+        print (result)
         return None
+    else:
+        return result
